@@ -1,0 +1,48 @@
+<FormularioOS>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 15
+
+    Label:
+        text: "Preencha a OS"
+        font_size: 24
+        bold: True
+
+    TextInput:
+        id: equipamento
+        hint_text: "Equipamento"
+        size_hint_y: None
+        height: 50
+
+    TextInput:
+        id: problema
+        hint_text: "Problema"
+        multiline: True
+        size_hint_y: None
+        height: 100
+
+    TextInput:
+        id: solucao
+        hint_text: "Solução"
+        multiline: True
+        size_hint_y: None
+        height: 100
+
+    TextInput:
+        id: tempo_reparo
+        hint_text: "Tempo de reparo (horas)"
+        input_filter: "float"
+        size_hint_y: None
+        height: 50
+
+    Button:
+        text: "Salvar OS"
+        size_hint_y: None
+        height: 60
+        on_press: root.enviar_os()
+
+    Button:
+        text: "Enviar Relatório Mensal"
+        size_hint_y: None
+        height: 60
+        on_press: root.enviar_relatorio()

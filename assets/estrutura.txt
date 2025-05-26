@@ -1,0 +1,6 @@
+meu_app_os/  
+│── main.py          (Código principal do Kivy)  
+│── os.kv            (Arquivo KV para a interface)  
+│── database.py      (Gerencia SQLite para salvar as OS)  
+│── relatorio.py     (Gera e envia e-mails)  
+│── assets/          (Ícones, imagens, etc.)  
