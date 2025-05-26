@@ -35,11 +35,24 @@
         size_hint_y: None
         height: 50
 
-    Button:
-        text: "Salvar OS"
+    BoxLayout:
         size_hint_y: None
         height: 60
-        on_press: root.enviar_os()
+        spacing: 10
+
+        Button:
+            text: "Salvar OS"
+            on_press: root.enviar_os()
+
+        Button:
+            text: "Limpar"
+            on_press: root.limpar_campos()
+
+    Button:
+        text: "Ver OS Salvas"
+        size_hint_y: None
+        height: 60
+        on_press: root.mostrar_os_salvas()
 
     Button:
         text: "Enviar Relatório Mensal"
