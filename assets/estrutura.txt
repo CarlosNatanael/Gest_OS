@@ -3,4 +3,5 @@ meu_app_os/
 │── os.kv            (Arquivo KV para a interface)  
 │── database.py      (Gerencia SQLite para salvar as OS)  
 │── relatorio.py     (Gera e envia e-mails)  
-│── assets/          (Ícones, imagens, etc.)  
+│── assets/          (Ícones, imagens, etc.)
+│── font/            (Fonte de texto)

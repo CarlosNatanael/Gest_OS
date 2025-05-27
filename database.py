@@ -12,7 +12,9 @@ def criar_banco():
             equipamento TEXT NOT NULL,
             problema TEXT NOT NULL,
             solucao TEXT NOT NULL,
-            tempo_reparo REAL
+            tempo_reparo REAL,
+            inicio_os TEXT,
+            fim_os TEXT
         )
     ''')
     conn.commit()
@@ -21,13 +23,13 @@ def criar_banco():
 # Chama criar_banco() sempre que o módulo é importado
 criar_banco()
 
-def adicionar_os(data, equipamento, problema, solucao, tempo_reparo):
+def adicionar_os(data, equipamento, problema, solucao, tempo_reparo, inicio, fim):
     conn = sqlite3.connect("os.db")
     cursor = conn.cursor()
-    cursor.execute('''
-        INSERT INTO ordens_servico (data, equipamento, problema, solucao, tempo_reparo)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (data, equipamento, problema, solucao, tempo_reparo))
+    cursor.execute("""
+        INSERT INTO ordens_servico (data, equipamento, problema, solucao, tempo_reparo, inicio_os, fim_os)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (data, equipamento, problema, solucao, tempo_reparo, inicio.strftime("%d/%m/%Y %H:%M"), fim.strftime("%d/%m/%Y %H:%M")))
     conn.commit()
     conn.close()
 
