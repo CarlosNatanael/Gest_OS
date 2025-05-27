@@ -2,50 +2,6 @@
 #:import DarkButton main.DarkButton
 #:import DarkTextInput main.DarkTextInput
 
-<DarkTextInput>:
-    hint_text_color: hex('#AAAAAA')
-    background_color: [0, 0, 0, 0]
-    foreground_color: hex('#FFFFFF')
-    cursor_color: hex('#BB86FC')
-    selection_color: hex('#BB86FC55')
-    padding: [15, 12]
-    size_hint_y: None
-    height: 45
-    font_size: '14sp'
-    canvas.before:
-        Color:
-            rgba: hex('#252525') if self.focus else hex('#1E1E1E')
-        RoundedRectangle:
-            pos: self.pos
-            size: self.size
-            radius: [6]
-        Color:
-            rgba: hex('#333333')
-        Line:
-            width: 1
-            rounded_rectangle: [self.x, self.y, self.width, self.height, 6]
-
-<DarkButton@Button>:
-    background_normal: ''
-    background_down: ''
-    background_color: (0, 0, 0, 0)
-    color: hex('#FFFFFF')
-    bold: True
-    size_hint_y: None
-    height: 45
-    font_size: '14sp'
-    canvas.before:
-        Color:
-            rgba: hex('#BB86FC') if self.state == 'normal' else hex('#9A65E3')
-        RoundedRectangle:
-            pos: self.pos
-            size: self.size
-            radius: [6]
-    on_press:
-        self.opacity = 0.7
-    on_release:
-        self.opacity = 1
-
 <FormularioOS>:
     orientation: "vertical"
     padding: [35, 20]
@@ -61,7 +17,7 @@
         text: "ORDEM DE SERVIÇO"
         font_size: '18sp'
         bold: True
-        color: hex('#BB86FC')
+        color: hex('#036ffc')
         size_hint_y: None
         height: 40
 
@@ -115,6 +71,13 @@
         DarkButton:
             text: "SALVAR OS"
             on_release: root.enviar_os()
+            canvas.before:
+                Color:
+                    rgba: hex('#3d5b82')
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [6]
 
     DarkButton:
         text: "LIMPAR"
