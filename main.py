@@ -13,6 +13,7 @@ from kivy.core.text import LabelBase
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
+
 # Registrar as fontes
 LabelBase.register(
     name="Roboto",

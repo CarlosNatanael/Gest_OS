@@ -39,79 +39,89 @@
         self.opacity = 1
 
 <FormularioOS>:
-    orientation: 'vertical'
-    padding: 20
-    spacing: 10
+    orientation: "vertical"
+    padding: [35, 20]
+    spacing: 20
     canvas.before:
         Color:
-            rgba: DarkTheme.bg_color
+            rgba: hex('#121212')
         Rectangle:
             pos: self.pos
             size: self.size
 
-    DarkTextInput:
-        id: equipamento
-        hint_text: "Equipamento"
-        multiline: False
-        foreground_color: DarkTheme.text_primary
-        background_color: DarkTheme.card_color
-        cursor_color: DarkTheme.accent_color
+    Label:
+        text: "ORDEM DE SERVIÇO"
+        font_size: '18sp'
+        bold: True
+        color: hex('#BB86FC')
+        size_hint_y: None
+        height: 40
 
-    DarkTextInput:
-        id: problema
-        hint_text: "Problema"
-        multiline: True
-        foreground_color: DarkTheme.text_primary
-        background_color: DarkTheme.card_color
-        cursor_color: DarkTheme.accent_color
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 12
+        padding: [15, 15, 15, 20]
+        canvas.before:
+            Color:
+                rgba: hex('#1E1E1E')
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [10]
 
-    DarkTextInput:
-        id: solucao
-        hint_text: "Solução"
-        multiline: True
-        foreground_color: DarkTheme.text_primary
-        background_color: DarkTheme.card_color
-        cursor_color: DarkTheme.accent_color
+        DarkTextInput:
+            id: equipamento
+            hint_text: "Equipamento *"
+            font_size: '14sp'
 
-    DarkTextInput:
-        id: tempo_reparo
-        hint_text: "Tempo de Reparo (em horas)"
-        multiline: False
-        input_filter: 'float'
-        foreground_color: DarkTheme.text_primary
-        background_color: DarkTheme.card_color
-        cursor_color: DarkTheme.accent_color
+        DarkTextInput:
+            id: problema
+            hint_text: "Descrição do Problema"
+            multiline: True
+            height: 100
+
+        DarkTextInput:
+            id: solucao
+            hint_text: "Solução Aplicada"
+            multiline: True
+            height: 100
+
+        DarkTextInput:
+            id: tempo_reparo
+            hint_text: "Tempo Gasto (horas)"
+            input_filter: "float"
 
     BoxLayout:
         size_hint_y: None
-        height: dp(50)
-        spacing: 10
+        height: 50
+        spacing: 12
 
         DarkButton:
             text: "SALVAR OS"
+            font_size: '14sp'
             on_release: root.enviar_os()
-            background_color: DarkTheme.accent_color
-            color: DarkTheme.text_primary
 
-        DarkButton:
-            text: "LIMPAR"
-            on_release: root.limpar_campos()
-            background_color: DarkTheme.card_color
-            color: DarkTheme.text_primary
 
-    BoxLayout:
-        size_hint_y: None
-        height: dp(50)
-        spacing: 10
+    DarkButton:
+        text: "LIMPAR"
+        font_size: '14sp'
+        on_release: root.limpar_campos()
+        canvas.before:
+            Color:
+                rgba: hex('#333333')
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [6]
 
-        DarkButton:
-            text: "HISTÓRICO"
-            on_release: root.mostrar_os_salvas()
-            background_color: DarkTheme.card_color
-            color: DarkTheme.text_primary
+    DarkButton:
+        text: "HISTÓRICO"
+        font_size: '14sp'
+        background_color: hex('#333333')
+        on_release: root.mostrar_os_salvas()
 
-        DarkButton:
-            text: "RELATÓRIO"
-            on_release: app.root.mostrar_mensagem("Função ainda não implementada", "Relatório")
-            background_color: DarkTheme.card_color
-            color: DarkTheme.text_primary
+    DarkButton:
+        text: "RELATÓRIO"
+        font_size: '14sp'
+        background_color: hex('#333333')
+        on_release: app.root.mostrar_mensagem("Função ainda não implementada", "Relatório")
