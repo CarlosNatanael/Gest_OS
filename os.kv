@@ -94,9 +94,18 @@
             height: 100
 
         DarkTextInput:
-            id: tempo_reparo
-            hint_text: "Tempo Gasto (horas)"
-            input_filter: "float"
+            id: inicio_os
+            hint_text: "Início da OS (ex: 29/05/2025 08:00)"
+            multiline: False
+            size_hint_y: None
+            height: 40
+
+        DarkTextInput:
+            id: fim_os
+            hint_text: "Fim da OS (ex: 29/05/2025 08:30)"
+            multiline: False
+            size_hint_y: None
+            height: 40
 
     BoxLayout:
         size_hint_y: None
